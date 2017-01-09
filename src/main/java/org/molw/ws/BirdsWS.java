@@ -14,7 +14,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jboss.as.quickstarts.rshelloworld;
+package org.molw.ws;
+
+import org.molw.logic.HelloService;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;
@@ -29,8 +31,8 @@ import javax.ws.rs.Produces;
  *
  */
 
-@Path("/")
-public class HelloWorld {
+@Path("/birds")
+public class BirdsWS {
     @Inject
     HelloService helloService;
 
