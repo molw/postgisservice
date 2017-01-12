@@ -1,15 +1,15 @@
 package org.molw.data;
 
-import org.geolatte.geom.Point;
+import org.postgis.Point;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
 
 /**
- * Created by spousty on 1/9/17.
+ * Created by steve on 1/12/2017.
  */
 @Entity
-@Table(name = "marineobs", schema = "public", catalog = "MOLW")
+@Table(name = "marineobs", schema = "public", catalog = "molw")
 public class MarineobsEntity {
     private long marineObservationId;
     private String identification;
