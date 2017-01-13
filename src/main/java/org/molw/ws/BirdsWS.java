@@ -16,10 +16,17 @@
  */
 package org.molw.ws;
 
+import org.molw.data.BirdobsEntity;
+
 import javax.inject.Inject;
+import javax.naming.NamingException;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import java.util.List;
 
 /**
  * A simple REST service which is able to say hello to someone using HelloService Please take a look at the web.xml where JAX-RS
@@ -31,6 +38,27 @@ import javax.ws.rs.Produces;
 
 @Path("birds")
 public class BirdsWS {
+
+    private EntityManager em;
+
+    protected EntityManager getEntityManager() throws NamingException {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("molw");
+        return emf.createEntityManager();
+    }
+
+
+    @GET
+    @Produces({ "application/json" })
+    public String getFiveBirds() throws NamingException {
+        List<BirdobsEntity> birds;
+        em = getEntityManager();
+        em.getTransaction().begin();
+        birds = em.createQuery("SELECT b FROM BirdobsEntity b ").setMaxResults(5).getResultList();
+        em.getTransaction().commit();
+        em.close();
+
+        return "Here is the number of results" + birds.size();
+    }
 
     @GET
     @Path("json")
