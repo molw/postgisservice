@@ -29,18 +29,19 @@ import javax.ws.rs.Produces;
  *
  */
 
-@Path("/birds")
+@Path("birds")
 public class BirdsWS {
 
     @GET
-    @Path("/json")
+    @Path("json")
     @Produces({ "application/json" })
     public String getHelloWorldJSON() {
+        System.out.printf("Hellow world from JSON");
         return "{\"result\":\"" + "World" + "\"}";
     }
 
     @GET
-    @Path("/xml")
+    @Path("xml")
     @Produces({ "application/xml" })
     public String getHelloWorldXML() {
         return "<xml><result>world</result></xml>";
