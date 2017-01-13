@@ -5,7 +5,7 @@ import javax.ws.rs.ApplicationPath;
 /**
  * Created by steve on 1/13/2017.
  */
-@ApplicationPath("/ws")
+@ApplicationPath("ws")
 public class ApplicationRoot {
 
 
