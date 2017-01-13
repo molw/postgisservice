@@ -130,7 +130,7 @@
                 <version>${version.war.plugin}</version>
                 <configuration>
                <!-- Java EE doesn't require web.xml, Maven needs to catch up! -->
-                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                    <failOnMissingWebXml>true</failOnMissingWebXml>
                 </configuration>
             </plugin>
             <!-- WildFly plug-in to deploy the WAR -->
