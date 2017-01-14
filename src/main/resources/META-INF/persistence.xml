@@ -12,7 +12,7 @@
             <property name="hibernate.c3p0.min_size" value="5" />
             <property name="hibernate.c3p0.max_size" value="30" />
             <property name="hibernate.c3p0.max_statements" value="50" />
-            <property name="javax.persistence.jdbc.username" value="spousty"/>
+            <property name="javax.persistence.jdbc.user" value="spousty"/>
             <property name="javax.persistence.jdbc.password" value="notsafe"/>
         </properties>
 <!--        <properties>
