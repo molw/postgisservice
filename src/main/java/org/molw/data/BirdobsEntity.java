@@ -579,4 +579,9 @@ public class BirdobsEntity {
         result = 31 * result + (speciesComments != null ? speciesComments.hashCode() : 0);
         return result;
     }
+
+    @Override
+    public String toString(){
+        return  globalUniqueIdentifier + " : " + commonName + " : " + observationStart + " : " + location;
+    }
 }

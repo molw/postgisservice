@@ -1,6 +1,6 @@
 package org.molw.data;
 
-import org.postgis.Point;
+import org.geolatte.geom.Point;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
