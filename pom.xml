@@ -90,6 +90,11 @@
             <artifactId>hibernate-entitymanager</artifactId>
             <version>5.2.6.Final</version>
         </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-spatial</artifactId>
+            <version>5.2.6.Final</version>
+        </dependency>
         <!-- Import the CDI API, we use provided scope as the API is included in WildFly -->
         <dependency>
             <groupId>javax.enterprise</groupId>
