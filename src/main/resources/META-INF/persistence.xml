@@ -6,14 +6,14 @@
         <class>org.molw.data.BirdobsEntity</class>
         <class>org.molw.data.MarineobsEntity</class>
         <properties>
-            <property name="hibernate.connection.url" value="jdbc:postgresql:/${env.MASTER_PORT}/${env.DB_NAME}"/>
-            <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql:/${env.MASTER_PORT}/${env.DB_NAME}"/>
+            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
             <property name="hibernate.dialect" value="org.hibernate.spatial.dialect.postgis.PostgisDialect"/>
             <property name="hibernate.c3p0.min_size" value="5" />
             <property name="hibernate.c3p0.max_size" value="30" />
             <property name="hibernate.c3p0.max_statements" value="50" />
-            <property name="hibernate.connection.username" value="${env.USER}"/>
-            <property name="hibernate.connection.password" value="${env.PASSWORD}"/>
+            <property name="javax.persistence.jdbc.username" value="${env.USER}"/>
+            <property name="javax.persistence.jdbc.password" value="${env.PASSWORD}"/>
         </properties>
     </persistence-unit>
 </persistence>
