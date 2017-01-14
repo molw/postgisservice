@@ -57,7 +57,7 @@ public class BirdsWS {
         em.getTransaction().commit();
         em.close();
 
-        return "this number should be 5 and it is: " + birds.size();
+        return birds.toString();
     }
 
     @GET
