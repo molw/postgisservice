@@ -95,6 +95,16 @@
             <artifactId>hibernate-spatial</artifactId>
             <version>5.2.6.Final</version>
         </dependency>
+        <!-- seems to be a version problem between hibernates-spatial and dom4j in wildfly
+        loading this based on this:
+        http://stackoverflow.com/questions/35533847/wildfly-10-java-lang-classcastexception-org-dom4j-documentfactory-cannot-be-ca
+        -->
+        <dependency>
+            <groupId>dom4j</groupId>
+            <artifactId>dom4j</artifactId>
+            <version>1.6.1</version>
+            <scope>provided</scope>
+        </dependency>
         <!-- Import the CDI API, we use provided scope as the API is included in WildFly -->
         <dependency>
             <groupId>javax.enterprise</groupId>
