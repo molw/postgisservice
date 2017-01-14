@@ -23,6 +23,7 @@ import javax.naming.NamingException;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -57,7 +58,7 @@ public class BirdsWS {
         em.getTransaction().commit();
         em.close();
 
-        return birds.toString();
+        return birds.get(0).toString();
     }
 
     @GET
