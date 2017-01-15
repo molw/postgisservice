@@ -69,6 +69,12 @@ public class BirdsWS {
             String coords = bird.getLocation().getCoordinate().toString().replaceFirst(", NaN", "");
             result.put("coords", coords);
             result.put("commonName", bird.getCommonName());
+            Short numberSeen = bird.getObservationCount();
+            if (numberSeen != null){
+                result.put("numberSeen", numberSeen.toString());
+            } else {
+                result.put("numberSeen", "NA");
+            }
             result.put("numberSeen", Short.toString(bird.getObservationCount()));
             result.put("startTime", bird.getObservationStart().toString());
             results.add(result);
