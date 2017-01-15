@@ -29,6 +29,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -61,7 +62,9 @@ public class BirdsWS {
         em.close();
 
         ArrayList results = new ArrayList();
-        for (BirdobsEntity bird : birds){
+        Iterator<BirdobsEntity> birdIterator = birds.iterator();
+        while (birdIterator.hasNext()){
+            BirdobsEntity bird = birdIterator.next();
             results.add(bird.getLocation().getCoordinates().toString());
         }
         return results;
