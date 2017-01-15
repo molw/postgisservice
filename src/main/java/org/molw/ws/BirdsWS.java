@@ -55,7 +55,7 @@ public class BirdsWS {
         List<BirdobsEntity> birds;
         em = getEntityManager();
         em.getTransaction().begin();
-        birds = em.createQuery("SELECT b.commonName, b.observationStart, b.speciesComments, b.coords  FROM BirdobsEntity b WHERE b.commonName = :commonName ").setParameter("commonName", commonName).getResultList();
+        birds = em.createQuery("SELECT b.commonName, b.observationStart, b.speciesComments, b.location  FROM BirdobsEntity b WHERE b.commonName = :commonName ").setParameter("commonName", commonName).getResultList();
         em.getTransaction().commit();
         em.close();
 
