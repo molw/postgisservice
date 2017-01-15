@@ -53,13 +53,12 @@ public class BirdsWS {
     @GET
     @Path("byspecies/{commonName}")
     @Produces({ "application/json" })
-    public  List<BirdobsEntity> getRecordsByCommonName(@PathParam("commonName") String commonName) throws NamingException{
+    public  ArrayList getRecordsByCommonName(@PathParam("commonName") String commonName) throws NamingException{
         List<BirdobsEntity> birds;
         em = getEntityManager();
         em.getTransaction().begin();
         birds = em.createQuery("SELECT b.commonName, b.observationStart, b.speciesComments, b.location  FROM BirdobsEntity b WHERE b.commonName = :commonName ").setParameter("commonName", commonName).getResultList();
         em.getTransaction().commit();
-        em.close();
 
         ArrayList results = new ArrayList();
         Iterator<BirdobsEntity> birdIterator = birds.iterator();
@@ -67,6 +66,9 @@ public class BirdsWS {
             BirdobsEntity bird = birdIterator.next();
             results.add(bird.getLocation().getCoordinates().toString());
         }
+
+
+        em.close();
         return results;
     }
 
