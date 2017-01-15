@@ -75,7 +75,7 @@ public class BirdsWS {
             } else {
                 result.put("numberSeen", "NA");
             }
-            result.put("numberSeen", Short.toString(bird.getObservationCount()));
+
             result.put("startTime", bird.getObservationStart().toString());
             results.add(result);
         }
