@@ -73,7 +73,7 @@ public class BirdsWS {
             String coords = bird.getLocation().getCoordinate().toString().replaceFirst(", NaN", "");
             //"(-121.9602598, 36.9653195)"
             int firstComma = coords.indexOf(',');
-            coordArray.add(coords.substring(0, firstComma));
+            coordArray.add(coords.substring(1, firstComma));
             coordArray.add(coords.substring(firstComma+1, coords.length()-1));
             result.put("coords", coordArray.toString());
             result.put("commonName", bird.getCommonName());
