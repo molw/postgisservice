@@ -29,6 +29,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
@@ -57,14 +58,20 @@ public class BirdsWS {
         List<BirdobsEntity> birds;
         em = getEntityManager();
         em.getTransaction().begin();
-        birds = em.createQuery("SELECT b FROM BirdobsEntity b WHERE b.commonName = :commonName ").setParameter("commonName", commonName).getResultList();
+        birds = em.createQuery("SELECT b.commonName, b.observationCount, b.observationStart, b.location  FROM BirdobsEntity b WHERE b.commonName = :commonName ").setParameter("commonName", commonName).getResultList();
         em.getTransaction().commit();
 
         ArrayList results = new ArrayList();
         Iterator<BirdobsEntity> birdIterator = birds.iterator();
         while (birdIterator.hasNext()){
+            HashMap<String, String> result = new HashMap<String, String>();
             BirdobsEntity bird = birdIterator.next();
-            results.add(bird.getLocation().getCoordinate().toString());
+            String coords = bird.getLocation().getCoordinate().toString().replaceFirst(", NaN", "");
+            result.put("coords", coords);
+            result.put("commonName", bird.getCommonName());
+            result.put("numberSeen", Short.toString(bird.getObservationCount()));
+            result.put("startTime", bird.getObservationStart().toString());
+            results.add(result);
         }
 
 
