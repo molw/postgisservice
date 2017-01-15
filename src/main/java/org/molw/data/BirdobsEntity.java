@@ -55,17 +55,6 @@ public class BirdobsEntity {
     private String reason;
     private String tripComments;
     private String speciesComments;
-    @Transient
-    private String coords;
-
-    public String getCoords() {
-        return coords;
-    }
-
-    public void setCoords(String coords) {
-        this.coords = coords;
-    }
-
 
 
     @Id
@@ -295,13 +284,7 @@ public class BirdobsEntity {
     }
 
     public void setLocation(Point location) {
-        coords = location.getCoordinates().toString();
         this.location = location;
-    }
-
-    @Transient
-    public String coordsFromLocation(){
-        return location.getCoordinates().toString();
     }
 
     @Basic

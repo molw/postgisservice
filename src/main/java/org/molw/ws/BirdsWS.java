@@ -62,7 +62,7 @@ public class BirdsWS {
 
         ArrayList results = new ArrayList();
         for (BirdobsEntity bird : birds){
-            results.add(bird.coordsFromLocation());
+            results.add(bird.getLocation().getCoordinates().toString());
         }
         return results;
     }
