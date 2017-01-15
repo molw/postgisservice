@@ -64,7 +64,7 @@ public class BirdsWS {
         Iterator<BirdobsEntity> birdIterator = birds.iterator();
         while (birdIterator.hasNext()){
             BirdobsEntity bird = birdIterator.next();
-            results.add(bird.getLocation().getCoordinates().toString());
+            results.add(bird.getLocation().getCoordinate().toString());
         }
 
 
