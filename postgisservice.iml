@@ -16,6 +16,7 @@
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="" />
         <datasource-mapping>
+          <factory-entry name="molw" />
           <factory-entry name="noname-a.xml@0" value="535a3edf-fc4e-4ccc-975f-60b7461ba33f" />
           <factory-entry name="persistenceUnit" value="535a3edf-fc4e-4ccc-975f-60b7461ba33f" />
         </datasource-mapping>
