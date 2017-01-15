@@ -26,6 +26,7 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import java.util.List;
 
@@ -47,8 +48,23 @@ public class BirdsWS {
         return emf.createEntityManager();
     }
 
+    @GET
+    @Path("byspecies/{commonName}")
+    @Produces({ "application/json" })
+    public  List<BirdobsEntity> getRecordsByCommonName(@PathParam("commonName") String commonName) throws NamingException{
+        List<BirdobsEntity> birds;
+        em = getEntityManager();
+        em.getTransaction().begin();
+        birds = em.createQuery("SELECT b FROM BirdobsEntity b WHERE b.commonName = :commonName ").setParameter("commonName", commonName).getResultList();
+        em.getTransaction().commit();
+        em.close();
+
+        return birds;
+    }
+
 
     @GET
+    @Path("fivebirds")
     @Produces({ "application/json" })
     public String getFiveBirds() throws NamingException {
         List<BirdobsEntity> birds;
