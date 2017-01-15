@@ -28,6 +28,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -59,7 +60,11 @@ public class BirdsWS {
         em.getTransaction().commit();
         em.close();
 
-        return birds;
+        ArrayList results = new ArrayList();
+        for (BirdobsEntity bird : birds){
+            results.add(bird.coordsFromLocation());
+        }
+        return results;
     }
 
 
@@ -73,6 +78,7 @@ public class BirdsWS {
         birds = em.createQuery("SELECT b FROM BirdobsEntity b ").setMaxResults(5).getResultList();
         em.getTransaction().commit();
         em.close();
+
 
         return birds.get(0).toString();
     }
