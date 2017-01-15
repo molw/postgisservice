@@ -66,8 +66,16 @@ public class BirdsWS {
         while (birdIterator.hasNext()){
             HashMap<String, String> result = new HashMap<String, String>();
             BirdobsEntity bird = birdIterator.next();
+
+            //Deal with the coords
+            ArrayList<String> coordArray = new ArrayList<String>();
+
             String coords = bird.getLocation().getCoordinate().toString().replaceFirst(", NaN", "");
-            result.put("coords", coords);
+            //"(-121.9602598, 36.9653195)"
+            int firstComma = coords.indexOf(',');
+            coordArray.add(coords.substring(0, firstComma));
+            coordArray.add(coords.substring(firstComma+1, coords.length()-1));
+            result.put("coords", coordArray.toString());
             result.put("commonName", bird.getCommonName());
             Short numberSeen = bird.getObservationCount();
             if (numberSeen != null){
