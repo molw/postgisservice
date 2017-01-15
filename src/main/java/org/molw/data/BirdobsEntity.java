@@ -1,6 +1,8 @@
 package org.molw.data;
 
-import org.geolatte.geom.Point;
+//import org.geolatte.geom.Point;
+import com.vividsolutions.jts.geom.Coordinate;
+import com.vividsolutions.jts.geom.Point;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -53,6 +55,18 @@ public class BirdobsEntity {
     private String reason;
     private String tripComments;
     private String speciesComments;
+    @Transient
+    private String coords;
+
+    public String getCoords() {
+        return coords;
+    }
+
+    public void setCoords(String coords) {
+        this.coords = coords;
+    }
+
+
 
     @Id
     @Column(name = "global_unique_identifier", nullable = false, length = 46)
@@ -281,7 +295,13 @@ public class BirdobsEntity {
     }
 
     public void setLocation(Point location) {
+        coords = location.getCoordinates().toString();
         this.location = location;
+    }
+
+    @Transient
+    public String coordsFromLocation(){
+        return location.getCoordinates().toString();
     }
 
     @Basic
