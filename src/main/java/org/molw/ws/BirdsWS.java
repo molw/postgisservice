@@ -52,6 +52,43 @@ public class BirdsWS {
     }
 
     @GET
+    @Path("/byobserver/{id}")
+    @Produces({"application/json"})
+    public ArrayList getObserverByID(@PathParam("id") String id) throws NamingException{
+        ArrayList results = new ArrayList();
+        List<BirdobsEntity> birds;
+        em = getEntityManager();
+        em.getTransaction().begin();
+        birds = em.createQuery("SELECT b FROM BirdobsEntity b WHERE b.observerId = :id ").setParameter("id", id).getResultList();
+        em.getTransaction().commit();
+
+        Iterator<BirdobsEntity> birdIterator = birds.iterator();
+        while (birdIterator.hasNext()){
+            HashMap<String, Object> result = new HashMap<String, Object>();
+            BirdobsEntity bird = birdIterator.next();
+
+            //Deal with the coords
+            ArrayList<String> coordArray = new ArrayList<String>();
+
+            String coords = bird.getLocation().getCoordinate().toString().replaceFirst(", NaN", "");
+            //"(-121.9602598, 36.9653195)"
+            int firstComma = coords.indexOf(',');
+            coordArray.add(coords.substring(1, firstComma));
+            coordArray.add(coords.substring(firstComma+1, coords.length()-1));
+            result.put("coords", coordArray);
+            result.put("id", bird.getObserverId());
+            result.put("commonName", bird.getCommonName());
+            result.put("startTime", bird.getObservationStart().toString());
+            results.add(result);
+        }
+
+
+        em.close();
+        return results;
+
+    }
+
+    @GET
     @Path("byspecies/{commonName}")
     @Produces({ "application/json" })
     public  ArrayList getRecordsByCommonName(@PathParam("commonName") String commonName) throws NamingException{
