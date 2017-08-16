@@ -6,14 +6,14 @@
         <class>org.molw.data.BirdobsEntity</class>
         <class>org.molw.data.MarineobsEntity</class>
         <properties>
-            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://REPLICA:5432/molw"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://pgset-replica:5432/userdb"/>
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
             <property name="hibernate.dialect" value="org.hibernate.spatial.dialect.postgis.PostgisDialect"/>
             <property name="hibernate.c3p0.min_size" value="5" />
             <property name="hibernate.c3p0.max_size" value="30" />
             <property name="hibernate.c3p0.max_statements" value="50" />
-            <property name="javax.persistence.jdbc.user" value="spousty"/>
-            <property name="javax.persistence.jdbc.password" value="notsafe"/>
+            <property name="javax.persistence.jdbc.user" value="postgres"/>
+            <property name="javax.persistence.jdbc.password" value="password"/>
             <property name="hibernate.integration.spatial.enabled" value="true"/>
         </properties>
 <!--        <properties>
