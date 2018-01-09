@@ -12,8 +12,8 @@
             <property name="hibernate.c3p0.min_size" value="5" />
             <property name="hibernate.c3p0.max_size" value="30" />
             <property name="hibernate.c3p0.max_statements" value="50" />
-            <property name="javax.persistence.jdbc.user" value="user70N"/>
-            <property name="javax.persistence.jdbc.password" value="vAu4VMKrvXkT6Ahb"/>
+            <property name="javax.persistence.jdbc.user" value="userKYG"/>
+            <property name="javax.persistence.jdbc.password" value="k85CSi0RlkQgNKRf"/>
             <property name="hibernate.integration.spatial.enabled" value="true"/>
         </properties>
 <!--        <properties>
