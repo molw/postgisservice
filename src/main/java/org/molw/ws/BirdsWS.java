@@ -18,12 +18,10 @@ package org.molw.ws;
 
 import org.molw.data.BirdobsEntity;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.naming.NamingException;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
+import javax.persistence.*;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -44,12 +42,13 @@ import java.util.List;
 @Path("birds")
 public class BirdsWS {
 
-    private EntityManager em;
+    //Need @ApplicationScoped to get this class to be part of CDI
+    @ApplicationScoped
 
-    protected EntityManager getEntityManager() throws NamingException {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("molw");
-        return emf.createEntityManager();
-    }
+    //Let CDI bring the PersistenceContext
+    @PersistenceContext(unitName = "molw")
+    private EntityManager em;
+    
 
     @GET
     @Path("/byobserver/{id}")
@@ -57,7 +56,6 @@ public class BirdsWS {
     public ArrayList getObserverByID(@PathParam("id") String id) throws NamingException{
         ArrayList results = new ArrayList();
         List<BirdobsEntity> birds;
-        em = getEntityManager();
         em.getTransaction().begin();
         birds = em.createQuery("SELECT b FROM BirdobsEntity b WHERE b.observerId = :id ").setParameter("id", id).getResultList();
         em.getTransaction().commit();
@@ -93,7 +91,6 @@ public class BirdsWS {
     @Produces({ "application/json" })
     public  ArrayList getRecordsByCommonName(@PathParam("commonName") String commonName) throws NamingException{
         List<BirdobsEntity> birds;
-        em = getEntityManager();
         em.getTransaction().begin();
         birds = em.createQuery("SELECT b FROM BirdobsEntity b WHERE b.commonName = :commonName ").setParameter("commonName", commonName).getResultList();
         em.getTransaction().commit();
@@ -136,7 +133,6 @@ public class BirdsWS {
     @Produces({ "application/json" })
     public String getFiveBirds() throws NamingException {
         List<BirdobsEntity> birds;
-        em = getEntityManager();
         em.getTransaction().begin();
         birds = em.createQuery("SELECT b FROM BirdobsEntity b ").setMaxResults(5).getResultList();
         em.getTransaction().commit();
