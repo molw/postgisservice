@@ -56,9 +56,7 @@ public class BirdsWS {
     public ArrayList getObserverByID(@PathParam("id") String id) throws NamingException{
         ArrayList results = new ArrayList();
         List<BirdobsEntity> birds;
-        em.getTransaction().begin();
         birds = em.createQuery("SELECT b FROM BirdobsEntity b WHERE b.observerId = :id ").setParameter("id", id).getResultList();
-        em.getTransaction().commit();
 
         Iterator<BirdobsEntity> birdIterator = birds.iterator();
         while (birdIterator.hasNext()){
@@ -91,9 +89,7 @@ public class BirdsWS {
     @Produces({ "application/json" })
     public  ArrayList getRecordsByCommonName(@PathParam("commonName") String commonName) throws NamingException{
         List<BirdobsEntity> birds;
-        em.getTransaction().begin();
         birds = em.createQuery("SELECT b FROM BirdobsEntity b WHERE b.commonName = :commonName ").setParameter("commonName", commonName).getResultList();
-        em.getTransaction().commit();
 
         ArrayList results = new ArrayList();
         Iterator<BirdobsEntity> birdIterator = birds.iterator();
@@ -133,10 +129,7 @@ public class BirdsWS {
     @Produces({ "application/json" })
     public String getFiveBirds() throws NamingException {
         List<BirdobsEntity> birds;
-        em.getTransaction().begin();
         birds = em.createQuery("SELECT b FROM BirdobsEntity b ").setMaxResults(5).getResultList();
-        em.getTransaction().commit();
-        em.close();
 
 
         return birds.get(0).toString();
