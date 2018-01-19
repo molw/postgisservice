@@ -15,6 +15,9 @@
             <property name="javax.persistence.jdbc.user" value="userKYG"/>
             <property name="javax.persistence.jdbc.password" value="k85CSi0RlkQgNKRf"/>
             <property name="hibernate.integration.spatial.enabled" value="true"/>
+            <property name="org.hibernate.type" value="true"/>
+            <property name="org.hibernate" value="true" />
+            <property name="hibernate.default_schema" value="public" />
         </properties>
 <!--        <properties>
             <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://${env.MASTER_PORT}/${env.DB_NAME}"/>
