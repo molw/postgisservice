@@ -12,7 +12,7 @@ import java.sql.Timestamp;
  * Created by steve on 1/12/2017.
  */
 @Entity
-@Table(name = "'birdobs'", schema = "public")
+@Table(name = "birdobs")
 public class BirdobsEntity {
     private String globalUniqueIdentifier;
     private Double taxonomicOrder;
