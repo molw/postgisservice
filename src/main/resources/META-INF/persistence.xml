@@ -15,6 +15,8 @@
             <property name="javax.persistence.jdbc.user" value="userxaok5"/>
             <property name="javax.persistence.jdbc.password" value="R7xnmB8tkAaFEA0mm8fg"/>
             <property name="hibernate.integration.spatial.enabled" value="true"/>
+            <property name="hibernate.ejb.naming_strategy" value="org.hibernate.cfg.ImprovedNamingStrategy"/>
+            <property name="hibernate.connection.charSet" value="UTF-8"/>
             <property name="org.hibernate.type" value="true"/>
             <property name="org.hibernate" value="true" />
             <property name="hibernate.default_schema" value="public" />
