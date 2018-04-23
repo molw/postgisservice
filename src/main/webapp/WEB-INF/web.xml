@@ -6,8 +6,8 @@
         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <data-source>
         <name>java:jboss/datasources/BirdsDS</name>
-        <class-name>org.postgis.DriverWrapper</class-name>
-        <url>jdbc:postgresql://172.30.69.18:5432/birds</url>
+        <class-name>org.postgresql.xa.PGXADataSource</class-name>
+        <url>jdbc:postgresql_postGIS://172.30.69.18:5432/birds</url>
         <user>uservyxtc</user>
         <password>aN3O0iaUnMBANS5cexXN</password>
         <transactional>true</transactional>

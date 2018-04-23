@@ -23,7 +23,7 @@
 	<packaging>war</packaging>
 	<name>ws endpoint for PostGIS calls</name>
 
-	
+
     <licenses>
         <license>
             <name>Apache License, Version 2.0</name>
@@ -140,17 +140,6 @@
             <version>5.2.16.Final</version>
             <scope>provided</scope>
         </dependency>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-c3p0</artifactId>
-            <version>5.2.16.Final</version>
-        </dependency>
-        <dependency>
-            <groupId>c3p0</groupId>
-            <artifactId>c3p0</artifactId>
-            <version>0.9.1.2</version>
-        </dependency>
-
         <!-- Import the JAX-RS API, we use provided scope as the API is included in WildFly -->
         <dependency>
             <groupId>org.jboss.spec.javax.ws.rs</groupId>
