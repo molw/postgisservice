@@ -11,5 +11,11 @@
         <user>uservyxtc</user>
         <password>aN3O0iaUnMBANS5cexXN</password>
         <transactional>true</transactional>
+        <isolation-level>TRANSACTION_READ_COMMITTED</isolation-level>
+        <initial-pool-size>10</initial-pool-size>
+        <max-pool-size>20</max-pool-size>
+        <min-pool-size>5</min-pool-size>
+        <max-idle-time>120</max-idle-time>
+        <max-statements>10</max-statements>
     </data-source>
 </web-app>
