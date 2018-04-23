@@ -2,24 +2,10 @@
 <persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
 
     <persistence-unit name="molw">
-        <!--<provider>org.hibernate.ejb.HibernatePersistence</provider>-->
         <jta-data-source>java:jboss/datasources/BirdsDS</jta-data-source>
-        <!--<class>org.molw.data.BirdobsEntity</class>-->
-        <!--<class>org.molw.data.MarineobsEntity</class>-->
         <properties>
             <property name="hibernate.integration.spatial.enabled" value="true"/>
             <property name="hibernate.connection.charSet" value="UTF-8"/>
         </properties>
-<!--        <properties>
-            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://${env.MASTER_PORT}/${env.DB_NAME}"/>
-            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
-            <property name="hibernate.dialect" value="org.hibernate.spatial.dialect.postgis.PostgisDialect"/>
-            <property name="hibernate.c3p0.min_size" value="5" />
-            <property name="hibernate.c3p0.max_size" value="30" />
-            <property name="hibernate.c3p0.max_statements" value="50" />
-            <property name="javax.persistence.jdbc.username" value="${env.USER}"/>
-            <property name="javax.persistence.jdbc.password" value="${env.PASSWORD}"/>
-        </properties>
--->
     </persistence-unit>
 </persistence>
