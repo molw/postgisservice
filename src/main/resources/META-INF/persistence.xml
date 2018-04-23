@@ -6,6 +6,7 @@
         <properties>
             <property name="hibernate.integration.spatial.enabled" value="true"/>
             <property name="hibernate.connection.charSet" value="UTF-8"/>
+            <property name="hibernate.dialect" value="org.hibernate.spatial.dialect.postgis.PostgisPG95Dialect"/>
         </properties>
     </persistence-unit>
 </persistence>
