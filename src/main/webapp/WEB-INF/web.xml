@@ -7,9 +7,9 @@
     <data-source>
         <name>java:jboss/datasources/BirdsDS</name>
         <class-name>org.postgresql.xa.PGXADataSource</class-name>
-        <url>jdbc:postgresql://172.30.69.18:5432/birds</url>
-        <user>uservyxtc</user>
-        <password>aN3O0iaUnMBANS5cexXN</password>
+        <url>jdbc:postgresql://postgis-birds-replica:5432/birds</url>
+        <user>userxaok5</user>
+        <password>R7xnmB8tkAaFEA0mm8fg</password>
         <transactional>true</transactional>
         <isolation-level>TRANSACTION_READ_COMMITTED</isolation-level>
         <initial-pool-size>10</initial-pool-size>
