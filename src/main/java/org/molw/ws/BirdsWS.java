@@ -79,7 +79,7 @@ public class BirdsWS {
         }
 
 
-        em.close();
+        //em.close();
         return results;
 
     }
@@ -119,7 +119,7 @@ public class BirdsWS {
         }
 
 
-        em.close();
+        //em.close();
         return results;
     }
 
